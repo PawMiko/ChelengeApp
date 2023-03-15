@@ -16,90 +16,89 @@ foreach (var day in dayOfWeeks)
 { 
     Console.WriteLine (day);
 }*/
+/*List<int> numery = new List<int>();
+for(int i = 10;i<=19;i++)
+{
+    numery.Add(i);
+    
+}
+//foreach(var licz in numery)
+//{
+    numery[4] += 1;
+    Console.WriteLine(numery[4]);
+//}
+*/
 
-int number = 4579;
-//int digit = 0;
+
+int number = 3333;
+
 
 string numberInString = number.ToString();
 char[] letters=numberInString.ToArray();
 
-int counter0 = 0;
-int counter1 = 0;
-int counter2 = 0;   
-int counter3 = 0;
-int counter4 = 0;
-int counter5 = 0;
-int counter6 = 0;   
-int counter7 = 0;   
-int counter8 = 0;   
-int counter9 = 0;
-
+List<int> counter=new List<int>();
+for(var i=0;i<=9;i++)
+{
+    counter.Add(0);
+}
 
 foreach(char OnelLetter in letters)
 {
 
     if (OnelLetter == '0')
     {
-      
-        counter0++;
+        counter[0] += 1;
+       
     }
     else if(OnelLetter =='1')
     {
+        counter[1] +=1;
        
-        counter1++;
     }
     else if(OnelLetter=='2')
     {
-     
-        counter2++; 
+        counter[2] +=1;
+         
     }
-    if (OnelLetter == '3')
+    else if (OnelLetter == '3')
     {
-       
-        counter3++;
+        counter[3] +=1;
+        
     }
     else if (OnelLetter == '4')
     {
-       
-        counter4++;
+        counter[4] += 1;
+        
     }
     else if (OnelLetter == '5')
     {
-       
-        counter5++;
-    }
-    if (OnelLetter == '6')
-    {
+        counter[5] += 1;
         
-        counter6++;
+    }
+    else if (OnelLetter == '6')
+    {
+        counter[6] += 1;
+        
     }
     else if (OnelLetter == '7')
     {
+        counter[7] += 1;
         
-        counter7++;
     }
     else if (OnelLetter == '8')
     {
-       
-        counter8++;
+        counter[8] += 1;
+        
     }
     else if (OnelLetter == '9')
     {
+        counter[9] += 1;
         
-        counter9++;
     }
 
 }
 
-Console.WriteLine(" liczba 0 jest w ilości " + counter0 );
-Console.WriteLine(" liczba 1 jest w ilości " + counter1 );
-Console.WriteLine(" liczba 2 jest w ilości " + counter2 );
-Console.WriteLine(" liczba 3 jest w ilości " + counter3 );
-Console.WriteLine(" liczba 4 jest w ilości " + counter4 );
-Console.WriteLine(" liczba 5 jest w ilości " + counter5 );
-Console.WriteLine(" liczba 6 jest w ilości " + counter6 );
-Console.WriteLine(" liczba 7 jest w ilości " + counter7 );
-Console.WriteLine(" liczba 8 jest w ilości " + counter8 );
-Console.WriteLine(" liczba 9 jest w ilości " + counter9 );
-
-
+for (var x = 0; x < counter.Count; x++)
+{
+    Console.WriteLine("Cyfra "+ x + " jest w ilosci " + counter[x]);
+}
