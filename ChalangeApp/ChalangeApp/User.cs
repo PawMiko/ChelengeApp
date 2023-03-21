@@ -2,39 +2,48 @@
 
 namespace ChalangeApp
 {
-   public class Employee
+
+  class FIRST_NUMBER
     {
-
-        private List<int> point = new List<int>();
-
-        public Employee(string name, string lastname, int age)
+        string stringer;
+        public  string result;
+        int VALUE;
+        int temp=0 ;
+        int remaider;
+        int incTemp = 0;
+        List<string> FIRS = new List<string>();
+        private int liczba=0;
+      public  FIRST_NUMBER()
         {
-
-            this.Name = name;
-            this.Lastname = lastname;
-            this.age = age;
-
+            Console.WriteLine("podaj liczbe ");
+           
         }
-
-        public string Name {  get;  private set; }
-        public string Lastname { get; private set; }
-        public int age { get; private set; }
-       
-        public int Result
+        public void PRIME_CALKULATION_NUMBER(int X)
         {
-            get
+             this.VALUE = X;
+            this.temp = this.VALUE;
+            
+            for(this.VALUE=X;this.VALUE>=1;this.VALUE--)
             {
-                return this.point.Sum();
+                for (this.temp = this.VALUE; this.temp >= 1; this.temp--)
+                {
+                    this.remaider = this.VALUE % this.temp;
+                    if (this.remaider == 0)
+                        this.incTemp++;
+                    if (this.incTemp == 2 && this.temp == 1)
+                    {
+                        this.stringer = VALUE.ToString();
+                        FIRS.Add(this.stringer +", " );
+                    }
+                    
+                }
+              this.incTemp = 0;
             }
+             Console.WriteLine("liczby pierwsze to");
+            this.result = string.Join("", FIRS);
+           
         }
-
-        public void ADDPOINT(int x)
-        {
-            this.point.Add(x);
-
-        }
-      
-
 
     }
+
 }
