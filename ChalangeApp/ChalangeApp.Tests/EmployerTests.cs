@@ -35,10 +35,10 @@ namespace ChalangeApp.Tests
 
             //act
 
-            var result = user.Result;
+            var result = user.Result_Remove_POINT;
 
             //assert
-            Assert.AreEqual(11, result);
+            Assert.AreEqual(1, result);
 
 
 
