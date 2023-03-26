@@ -13,38 +13,38 @@ Employee User3 = new Employee(" Tomek", " Wit", 53);
 Console.WriteLine("NAME " + User1.Name);
 Console.WriteLine("LASTNAME " + User1.Lastname);
 Console.WriteLine("AGE " + User1.age);
-User1.ADDPOINT(1);
-User1.ADDPOINT(1);
-User1.ADDPOINT(1);
-User1.REMOVEPOINT(1);
-User1.ADDPOINT(13);
-User1.ADDPOINT(1);
+User1.AddPoint(1);
+User1.AddPoint(1);
+User1.AddPoint(1);
+User1.RemovePoint(1);
+User1.AddPoint(13);
+User1.AddPoint(1);
 Console.WriteLine("POINT " + User1.Result  );
-Console.WriteLine("Remove point is " + User1.Result_Remove_POINT + "\n");
+Console.WriteLine("Remove point is " + User1.ResultRemovePoint + "\n");
 
 Console.WriteLine("NAME " + User2.Name);
 Console.WriteLine("LASTNAME " + User2.Lastname);
 Console.WriteLine("AGE " + User2.age);
-User2.ADDPOINT(1);
-User2.ADDPOINT(1);
-User2.REMOVEPOINT(1);
-User2.ADDPOINT(14);
-User2.ADDPOINT(1);
-User2.ADDPOINT(1);
+User2.AddPoint(1);
+User2.AddPoint(1);
+User2.RemovePoint(1);
+User2.AddPoint(14);
+User2.AddPoint(1);
+User2.AddPoint(1);
 Console.WriteLine("POINT " + User2.Result );
-Console.WriteLine("Remove point is " + User2.Result_Remove_POINT + "\n");
+Console.WriteLine("Remove point is " + User2.ResultRemovePoint + "\n");
 
 Console.WriteLine("NAME " + User3.Name);
 Console.WriteLine("LASTNAME " + User3.Lastname);
 Console.WriteLine("AGE " + User3.age);
-User3.ADDPOINT(14);
-User3.ADDPOINT(1);
-User3.ADDPOINT(1);
-User3.REMOVEPOINT(2);
-User3.ADDPOINT(1);
-User3.ADDPOINT(1);
+User3.AddPoint(14);
+User3.AddPoint(1);
+User3.AddPoint(1);
+User3.RemovePoint(2);
+User3.AddPoint(1);
+User3.AddPoint(1);
 Console.WriteLine("POINT " + User3.Result  );
-Console.WriteLine("Remove point is " + User3.Result_Remove_POINT + "\n");
+Console.WriteLine("Remove point is " + User3.ResultRemovePoint + "\n");
 
 
 
@@ -82,14 +82,14 @@ if (User1.Result == maxResult)
     Console.WriteLine(User1.Lastname);
     Console.WriteLine(User1.age);
     Console.WriteLine(User1.Result);
-    Console.WriteLine("Remove point is " + User1.Result_Remove_POINT + "\n");
+    Console.WriteLine("Remove point is " + User1.ResultRemovePoint + "\n");
     if (User1 != userWithMaxResult)
     {
         Console.WriteLine(userWithMaxResult.Name);
         Console.WriteLine(userWithMaxResult.Lastname);
         Console.WriteLine(userWithMaxResult.age);
         Console.WriteLine(userWithMaxResult.Result);
-        Console.WriteLine("Remove point is " + userWithMaxResult.Result_Remove_POINT + "\n");
+        Console.WriteLine("Remove point is " + userWithMaxResult.ResultRemovePoint + "\n");
     }
 }
 else if (User2.Result == User3.Result)
@@ -99,14 +99,14 @@ else if (User2.Result == User3.Result)
     Console.WriteLine(User2.Lastname);
     Console.WriteLine(User2.age);
     Console.WriteLine(User2.Result);
-    Console.WriteLine("Remove point is " + User2.Result_Remove_POINT + "\n");
+    Console.WriteLine("Remove point is " + User2.ResultRemovePoint + "\n");
 
     Console.WriteLine("\t" + " I równierz ");
     Console.WriteLine(User3.Name); ;
     Console.WriteLine(User3.Lastname);
     Console.WriteLine(User3.age);
     Console.WriteLine(User3.Result);
-    Console.WriteLine("Remove point is " + User3.Result_Remove_POINT + "\n");
+    Console.WriteLine("Remove point is " + User3.ResultRemovePoint + "\n");
 
 }
 else
@@ -116,6 +116,6 @@ else
     Console.WriteLine(userWithMaxResult.Lastname);
     Console.WriteLine(userWithMaxResult.age);
     Console.WriteLine(userWithMaxResult.Result);
-    Console.WriteLine("Remove point is " + userWithMaxResult.Result_Remove_POINT + "\n");
+    Console.WriteLine("Remove point is " + userWithMaxResult.ResultRemovePoint + "\n");
 }
 

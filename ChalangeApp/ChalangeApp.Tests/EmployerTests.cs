@@ -7,16 +7,16 @@ namespace ChalangeApp.Tests
         {
             //arrange
             var user = new Employee("pawel", "d23r", 32);
-            user.ADDPOINT(10);
-            user.ADDPOINT(1);
-            user.REMOVEPOINT(1);
+            user.AddPoint(10);
+            user.AddPoint(1);
+            user.RemovePoint(1);
 
             //act
 
-            var result = user.Result;
+            var Result = user.Result;
 
             //assert
-            Assert.AreEqual(10, result);
+            Assert.AreEqual(10, Result);
 
 
 
@@ -29,16 +29,16 @@ namespace ChalangeApp.Tests
         {
             //arrange
             var user = new Employee("pawel", "d23r", 32);
-            user.ADDPOINT(10);
-            user.ADDPOINT(1);
-            user.REMOVEPOINT(1);
+            user.AddPoint(10);
+            user.AddPoint(1);
+            user.RemovePoint(1);
 
             //act
 
-            var result = user.Result_Remove_POINT;
+            var Result = user.ResultRemovePoint;
 
             //assert
-            Assert.AreEqual(1, result);
+            Assert.AreEqual(1, Result);
 
 
 

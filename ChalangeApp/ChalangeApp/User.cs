@@ -4,15 +4,15 @@ namespace ChalangeApp
     public class Employee
     {
 
-        private List<int> point = new List<int>();
-        private List<int> point_remove = new List<int>();
+        private List<int> Point = new List<int>();
+        private List<int> PointRemove = new List<int>();
 
 
-        public Employee(string name, string lastname, int age)
+        public Employee(string name, string lastName, int age)
         {
 
             this.Name = name;
-            this.Lastname = lastname;
+            this.Lastname = lastName;
             this.age = age;
 
         }
@@ -26,28 +26,28 @@ namespace ChalangeApp
             get
             {
 
-                var result_add_Point2 = this.point.Sum()-this.point_remove.Sum();
-                return result_add_Point2;
+                var resultAddPoint2 = this.Point.Sum()-this.PointRemove.Sum();
+                return resultAddPoint2;
 
             }
         }
-        public int Result_Remove_POINT
+        public int ResultRemovePoint
         {
             get
             {
-                return this.point_remove.Sum();
+                return this.PointRemove.Sum();
             }
         }
 
-        public void ADDPOINT(int x)
+        public void AddPoint(int x)
         {
-            this.point.Add(x);
+            this.Point.Add(x);
             //this.point.Add(-1);
 
         }
-        public void REMOVEPOINT(int x) 
+        public void RemovePoint(int x) 
         {
-            this.point_remove.Add(x);
+            this.PointRemove.Add(x);
             //this.point.Add(x);
 
         }
