@@ -1,49 +1,58 @@
 ﻿
-
 namespace ChalangeApp
 {
-
-  class FIRST_NUMBER
+    public class Employee
     {
-        string stringer;
-        public  string result;
-        int VALUE;
-        int temp=0 ;
-        int remaider;
-        int incTemp = 0;
-        List<string> FIRS = new List<string>();
-        private int liczba=0;
-      public  FIRST_NUMBER()
+
+        private List<int> point = new List<int>();
+        private List<int> point_remove = new List<int>();
+
+
+        public Employee(string name, string lastname, int age)
         {
-            Console.WriteLine("podaj liczbe ");
-           
+
+            this.Name = name;
+            this.Lastname = lastname;
+            this.age = age;
+
         }
-        public void PRIME_CALKULATION_NUMBER(int X)
+
+        public string Name { get; private set; }
+        public string Lastname { get; private set; }
+        public int age { get; private set; }
+
+        public int Result
         {
-             this.VALUE = X;
-            this.temp = this.VALUE;
-            
-            for(this.VALUE=X;this.VALUE>=1;this.VALUE--)
+            get
             {
-                for (this.temp = this.VALUE; this.temp >= 1; this.temp--)
-                {
-                    this.remaider = this.VALUE % this.temp;
-                    if (this.remaider == 0)
-                        this.incTemp++;
-                    if (this.incTemp == 2 && this.temp == 1)
-                    {
-                        this.stringer = VALUE.ToString();
-                        FIRS.Add(this.stringer +", " );
-                    }
-                    
-                }
-              this.incTemp = 0;
+
+                var result_add_Point2 = this.point.Sum()-this.point_remove.Sum();
+                return result_add_Point2;
+
             }
-             Console.WriteLine("liczby pierwsze to");
-            this.result = string.Join("", FIRS);
-           
         }
+        public int Result_Remove_POINT
+        {
+            get
+            {
+                return this.point_remove.Sum();
+            }
+        }
+
+        public void ADDPOINT(int x)
+        {
+            this.point.Add(x);
+            //this.point.Add(-1);
+
+        }
+        public void REMOVEPOINT(int x) 
+        {
+            this.point_remove.Add(x);
+            //this.point.Add(x);
+
+        }
+
+
 
     }
-
 }
