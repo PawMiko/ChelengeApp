@@ -1,6 +1,6 @@
 namespace ChalangeApp.Tests
 {
-    public class Tests
+    public class EmployerTests
     {
         [Test]
         public void When_User_Collect_Plus_OR_Minus_Point_should_Return_Correct_Result()

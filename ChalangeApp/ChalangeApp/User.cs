@@ -7,17 +7,23 @@ namespace ChalangeApp
         private List<int> Point = new List<int>();
         private List<int> PointRemove = new List<int>();
 
+        public Employee(string name)
+        {
+
+            this.LoginName = name;
+        
+        }
 
         public Employee(string name, string lastName, int age)
         {
 
-            this.Name = name;
+            this.LoginName = name;
             this.Lastname = lastName;
             this.age = age;
 
         }
 
-        public string Name { get; private set; }
+        public string LoginName { get; private set; }
         public string Lastname { get; private set; }
         public int age { get; private set; }
 
