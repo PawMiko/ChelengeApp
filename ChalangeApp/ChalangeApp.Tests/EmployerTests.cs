@@ -8,7 +8,7 @@ namespace ChalangeApp.Tests
             //arrange
             var user = new UserEmployee("pawel", "d23r", 32);
             
-            user.AddPoint(12);
+            user.AddPoint(10);
             user.AddPoint(1);
             user.RemovePoint(1);
             
@@ -16,7 +16,7 @@ namespace ChalangeApp.Tests
              var Result = user.GetStat();
 
             //assert
-            Assert.AreEqual(4, Result.Average);
+            Assert.AreEqual(Math.Round(3.33,2),Math.Round( Result.Average,2));
             
         }
 
