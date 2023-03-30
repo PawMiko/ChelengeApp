@@ -18,9 +18,9 @@ namespace ChalangeApp.Tests
 
             //  Assert.Pass();
         }
-        private Employee GetEployee(string name)
+        private UserEmployee GetEployee(string name)
         {
-            return new Employee(name);
+            return new UserEmployee(name);
         }
 
         [Test]

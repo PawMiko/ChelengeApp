@@ -3,47 +3,58 @@ namespace ChalangeApp.Tests
     public class EmployerTests
     {
         [Test]
-        public void When_User_Collect_Plus_OR_Minus_Point_should_Return_Correct_Result()
+        public void When_User_Collect_Plus_Or_Minus_Point_should_Be_Return_Correct_Statistic_Average_Result()
         {
             //arrange
-            var user = new Employee("pawel", "d23r", 32);
-            user.AddPoint(10);
+            var user = new UserEmployee("pawel", "d23r", 32);
+            
+            user.AddPoint(12);
             user.AddPoint(1);
             user.RemovePoint(1);
-
+            
             //act
-
-            var Result = user.Result;
+             var Result = user.GetStat();
 
             //assert
-            Assert.AreEqual(10, Result);
-
-
-
-            //  Assert.Pass();
+            Assert.AreEqual(4, Result.Average);
+            
         }
 
 
         [Test]
-        public void When_User_Collect_Plus_OR_Minus_Point_should_Return_Correct_Result_1()
+        public void When_User_Collect_Plus_Or_Minus_Point_should_Be_Return_Correct_Statistic_MIN_Result()
         {
             //arrange
-            var user = new Employee("pawel", "d23r", 32);
+            var user = new UserEmployee("pawel", "d23r", 32);
             user.AddPoint(10);
             user.AddPoint(1);
             user.RemovePoint(1);
 
             //act
 
-            var Result = user.ResultRemovePoint;
+            var Result = user.GetStat();
 
             //assert
-            Assert.AreEqual(1, Result);
+            Assert.AreEqual(-1, Result.Min);
 
-
-
-            //  Assert.Pass();
         }
 
+        [Test]
+        public void When_User_Collect_Plus_Or_Minus_Point_should_Be_Return_Correct_Statistic_MAX_Result()
+        {
+            //arrange
+            var user = new UserEmployee("pawel", "d23r", 32);
+            user.AddPoint(10);
+            user.AddPoint(1);
+            user.RemovePoint(1);
+
+            //act
+
+            var Result = user.GetStat();
+
+            //assert
+            Assert.AreEqual(10, Result.Max);
+
+        }
     }
 }
