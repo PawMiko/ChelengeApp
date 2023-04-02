@@ -14,12 +14,17 @@ var User3 = new UserEmployee(" Tomek", " Wit", 53);
 Console.WriteLine("NAME " + User1.LoginName);
 Console.WriteLine("LASTNAME " + User1.Lastname);
 Console.WriteLine("AGE " + User1.age + "\n");
-User1.AddPoint(1);
+User1.AddPoint("adam");
+User1.AddPoint("4000");
+User1.AddPoint('a');
+User1.AddPoint('5');
+User1.AddPoint(5.777777777777777777777777777777777777777777);
+//User1.AddPoint(18446744073709551615);
+User1.RemovePoint(-1);
+User1.RemovePoint(-1);
+User1.RemovePoint(-1);
+User1.AddPoint(12);
 User1.AddPoint(3);
-User1.AddPoint(1);
-User1.RemovePoint(1);
-User1.AddPoint(2);
-User1.AddPoint(2);
 Console.WriteLine("POINT " + User1.Result  );
 Console.WriteLine("All points removed is:  " + User1.ResultRemovePoint + "\n");
 var stat1 = User1.GetStat();
@@ -95,8 +100,8 @@ void metoda() // weryfikacja  jedna czy więcej osób ma tyle samo punktów
     if (User1.Result == maxResult)
     {
 
-        Console.WriteLine("\t" + " najwiecej punktow mają \n");
-        Console.WriteLine($"Name{User1.LoginName} \n"+$"Lastname {User1.Lastname} \n"+$"Age {User1.age}  \n"+$"Result {User1.Result}  \n"+$"All points removed is:  {User1.ResultRemovePoint}\n"); 
+        Console.WriteLine("\t" + " najwiecej punktow ma \n");
+        Console.WriteLine($"Name{User1.LoginName} \n"+$"Lastname {User1.Lastname} \n"+$"Age {User1.age}  \n"+$"Result {User1.Result}  \n"+$"All points removed is:  {User1.ResultRemovePoint}\n" + $"All points other methot removed is:  {User1.ResultMinusPoint}\n"); 
         Console.WriteLine($" Max point {stat1.Max}  \n"+ $" Min point {stat1.Min}  \n"+ $" Average of points {stat1.Average}\n");
         
         if (User1 != userWithMaxResult)

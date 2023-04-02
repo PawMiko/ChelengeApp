@@ -10,18 +10,14 @@ namespace ChalangeApp
 
         public UserEmployee(string name)
         {
-
-            this.LoginName = name;
-          
+            this.LoginName = name; 
         }
 
         public UserEmployee(string name, string lastName, int age)
         {
-
             this.LoginName = name;
             this.Lastname = lastName;
             this.age = age;
-
         }
 
         
@@ -33,11 +29,28 @@ namespace ChalangeApp
         {
             get
             {
-                var resultAddPoint2 = this.Points.Sum();
-                return resultAddPoint2;
+                var resultAddPoint = this.Points.Sum();
+                return resultAddPoint;
 
             }
         }
+
+        public float ResultMinusPoint //propercja  zwracające sume punktów ujemnych na liscie POINT // nauka"
+        {
+            get
+            {
+                float resultAddMinusPoint = 0;
+                for (int i=0; i<this.Points.Count;i++)
+                {
+                    if (this.Points[i]<0)
+                        resultAddMinusPoint += this.Points[i];
+                }
+                //var resultAddPoint = this.Points.Sum();
+                return resultAddMinusPoint;
+
+            }
+        }
+
         public float ResultRemovePoint//propercja zwracająca sumę punktów "ujemnych"
         {
             get
@@ -46,24 +59,58 @@ namespace ChalangeApp
             }
         }
 
-        public void AddPoint(float x)
+        public void AddPoint(float XPoint)//metoda ktora dodaje punkty z wykorzystaniem listy
         {
-            this.Points.Add(x);
-            //metoda ktora dodaje punkty z wykorzystaniem listy
-
+            if (XPoint >= 0 && XPoint <= 100)
+            {
+                this.Points.Add(XPoint);
+            }
+            else
+            {
+                Console.WriteLine("ivalid points value");
+            }        
         }
-        public void RemovePoint(float x) 
+
+        public void AddPoint(double  doublePoint)//metoda konwerująca double na float w ramach walidacji
         {
-            if(x>0)
+
+            float floatPointTemp = (float)doublePoint;
+            var floatPointTemp2 = Math.Round(floatPointTemp,2);
+            float floatPoint =(float)floatPointTemp2;       // bez tej kolejny raz konwersji  
+            AddPoint(floatPoint);             //
+        }
+        public void AddPoint(char charPoint)//metoda konwerująca char na string w ramach walidacji
+        {
+            var stringResult = char.ToString(charPoint);
+            AddPoint(stringResult);
+        }
+
+        public void AddPoint(string stringPoint)//metoda konwerująca string na float w ramach walidacji
+        {
+            if(float.TryParse(stringPoint,out float floatResult))
+            {
+                this.AddPoint(floatResult);
+            }
+            else
+            {
+                Console.WriteLine("string is not float");
+            }
+        }
+
+        public void RemovePoint(float x) //metoda ktora konweruje liczby dodatnie na ujemne i dodaje ujemne  punkty z wykorzystaniem listy
+        {
+            if(x>0 && x<=100)
             {
                 x = x * (-1);
                 this.PointsRemove.Add(x);
             }
-            this.Points.Add(x);
-            //metoda ktora dodaje "ujemne"  punkty z wykorzystaniem listy
-            
-
+            else
+            {
+                this.PointsRemove.Add(x);
+            }
+            this.Points.Add(x);         
         }
+
         public Statistics GetStat () //metoda modelu danych
         {
             var stat = new Statistics();
