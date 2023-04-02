@@ -70,15 +70,19 @@ namespace ChalangeApp
                 Console.WriteLine("ivalid points value");
             }        
         }
+        public void AddPoint(ulong longPoint)//metoda konwerująca ulong na float w ramach walidacji
+        {
+            float floatPoint=(float)longPoint;
+            AddPoint(floatPoint);
+        }
 
         public void AddPoint(double  doublePoint)//metoda konwerująca double na float w ramach walidacji
         {
-
-            float floatPointTemp = (float)doublePoint;
-            var floatPointTemp2 = Math.Round(floatPointTemp,2);
-            float floatPoint =(float)floatPointTemp2;       // bez tej kolejny raz konwersji  
-            AddPoint(floatPoint);             //
+            var floatPointTemp2 = Math.Round(doublePoint,2);
+            float floatPoint =(float)floatPointTemp2;        
+            AddPoint(floatPoint);             
         }
+
         public void AddPoint(char charPoint)//metoda konwerująca char na string w ramach walidacji
         {
             var stringResult = char.ToString(charPoint);

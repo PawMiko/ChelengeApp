@@ -19,7 +19,7 @@ User1.AddPoint("4000");
 User1.AddPoint('a');
 User1.AddPoint('5');
 User1.AddPoint(5.777777777777777777777777777777777777777777);
-//User1.AddPoint(18446744073709551615);
+User1.AddPoint(18446744073709551615);
 User1.RemovePoint(-1);
 User1.RemovePoint(-1);
 User1.RemovePoint(-1);
