@@ -2,59 +2,33 @@ namespace ChalangeApp.Tests
 {
     public class EmployerTests
     {
+
         [Test]
-        public void When_User_Collect_Plus_Or_Minus_Point_should_Be_Return_Correct_Statistic_Average_Result()
+        public void Check_And_Compare_Input_Data_Whit_The_Output_Result ()
         {
             //arrange
             var user = new UserEmployee("pawel", "d23r", 32);
-            
-            user.AddPoint(10);
-            user.AddPoint(1);
-            user.RemovePoint(1);
-            
-            //act
-             var Result = user.GetStat();
-
-            //assert
-            Assert.AreEqual(Math.Round(3.33,2),Math.Round( Result.Average,2));
-            
-        }
-
-
-        [Test]
-        public void When_User_Collect_Plus_Or_Minus_Point_should_Be_Return_Correct_Statistic_MIN_Result()
-        {
-            //arrange
-            var user = new UserEmployee("pawel", "d23r", 32);
-            user.AddPoint(10);
-            user.AddPoint(1);
-            user.RemovePoint(1);
+            var user1 = new UserEmployee("pawel", "d23r", 32);
+            var user2 = new UserEmployee("pawel", "d23r", 32);
+            var user3 = new UserEmployee("asa", "sas", 44);
+            user.AddPoint('a');
+            user1.AddPoint(88);
+            user2.AddPoint(93);
+            user3.AddPoint('B');
 
             //act
-
-            var Result = user.GetStat();
-
+            var Result  = user.GetStat();
+            var Result1 = user1.GetStat();
+            var Result2 = user2.GetStat();
+            var Result3 = user3.GetStat();
             //assert
-            Assert.AreEqual(-1, Result.Min);
-
+            Assert.AreEqual(100,Result.Max);
+            Assert.AreEqual(88,Result1.Max);
+            Assert.AreEqual('A', Result2.AverageLetter);
+            Assert.AreEqual('A', Result3.AverageLetter);
         }
+       
 
-        [Test]
-        public void When_User_Collect_Plus_Or_Minus_Point_should_Be_Return_Correct_Statistic_MAX_Result()
-        {
-            //arrange
-            var user = new UserEmployee("pawel", "d23r", 32);
-            user.AddPoint(10);
-            user.AddPoint(1);
-            user.RemovePoint(1);
-
-            //act
-
-            var Result = user.GetStat();
-
-            //assert
-            Assert.AreEqual(10, Result.Max);
-
-        }
+       
     }
 }

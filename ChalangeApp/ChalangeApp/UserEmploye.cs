@@ -85,10 +85,39 @@ namespace ChalangeApp
             AddPoint(floatPoint);
         }
 
-        public void AddPoint(char charPoint)//metoda konwerująca char na string w ramach walidacji
+        public void AddPoint(char charLetterPoint)//metoda konwerująca char na string w ramach walidacji + case
         {
-            var stringResult = char.ToString(charPoint);
-            AddPoint(stringResult);
+            switch (charLetterPoint)
+            {
+                case 'A':
+                case 'a':
+                    this.Points.Add(100);
+                    break;
+                case 'B':
+                case 'b':
+                    this.Points.Add(80);
+                    break;
+                case 'C':
+                case 'c':
+                    this.Points.Add(60);
+                    break;
+                case 'D':
+                case 'd':
+                    this.Points.Add(40);
+                    break;
+                case 'E':
+                case 'e':
+                    this.Points.Add(20);
+                    break;
+                default:
+                    {
+                        var stringResult = char.ToString(charLetterPoint);
+                        AddPoint(stringResult);
+                        break;
+                    }
+
+            }
+                    
         }
 
         public void AddPoint(string stringPoint)//metoda konwerująca string na float w ramach walidacji
@@ -99,7 +128,7 @@ namespace ChalangeApp
             }
             else
             {
-                Console.WriteLine("string is not float");
+                Console.WriteLine("string is not float or wrong letter");
             }
         }
 
@@ -132,67 +161,32 @@ namespace ChalangeApp
                 stat.Average += point;
             }
             stat.Average /= this.Points.Count;
-
-            return stat;
-        }
-
-        public Statistics GetStatFor()
-        {
-            var stat = new Statistics();
-            stat.Max = -100;
-            stat.Min = 100;
-            stat.Average = 0;
-            for (int i = 0; i < this.Points.Count; i++)
+            switch(stat.Average)
             {
-                stat.Max = Math.Max(stat.Max, this.Points[i]);
-                stat.Min = Math.Min(stat.Min, this.Points[i]);
-                stat.Average += this.Points[i];
-            }
-            stat.Average /= this.Points.Count;
-
-            return stat;
-        }
-
-        public Statistics GetStatWhile()
-        {
-            var stat = new Statistics();
-            var i = 0;
-            stat.Max = -100;
-            stat.Min = 100;
-            stat.Average = 0;
-            while (i < this.Points.Count)
-            {
-                stat.Max = Math.Max(stat.Max, this.Points[i]);
-                stat.Min = Math.Min(stat.Min, this.Points[i]);
-                stat.Average += this.Points[i];
-                i++;
+                case var average when average >= 80:
+                    stat.AverageLetter = 'A';
+                    break;
+                case var average when average >= 60:
+                    stat.AverageLetter = 'B';
+                    break;
+                case var average when average >= 40:
+                    stat.AverageLetter = 'C';
+                    break;
+                case var average when average >= 20:
+                    stat.AverageLetter = 'D';
+                    break;
+                default:
+                    stat.AverageLetter = 'E';
+                    break;
             }
 
-            stat.Average /= this.Points.Count;
-
-            return stat;
+          return stat;
         }
 
-        public Statistics GetStatDoWhile()
-        {
-            var stat = new Statistics();
-            var i = 0;
-            stat.Max = -100;
-            stat.Min = 100;
-            stat.Average = 0;
-            do
-            {
-                stat.Max = Math.Max(stat.Max, this.Points[i]);
-                stat.Min = Math.Min(stat.Min, this.Points[i]);
-                stat.Average += this.Points[i];
-                i++;
-            } while (i < this.Points.Count);
             
-            stat.Average /= this.Points.Count;
 
-            return stat;
         }
 
 
-    }
+    
 }
