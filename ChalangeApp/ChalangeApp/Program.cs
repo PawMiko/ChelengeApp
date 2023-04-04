@@ -8,13 +8,15 @@ var User2 = new UserEmployee(" Olek", " Kwiat", 43);
 var User3 = new UserEmployee(" Tomek", " Wit", 53);
 Console.WriteLine("Program dodający oceny pracownikowi ");
 Console.WriteLine("========================================================");
+Console.WriteLine("Choise evaluation A,B,C,D or value betwen 0 and 100");
+Console.WriteLine("Q = exit\n");
+
 
 int i = 0;
-while(true)
+Console.WriteLine("Enter employee evaluation");
+for (;;)
 {
-    Console.WriteLine("podaj kolejną  ocene pracownika");
-    var input = Console.ReadLine();
-
+   var input = Console.ReadLine();
 
     switch (input)
     {
@@ -37,7 +39,7 @@ while(true)
         case "q":
         case "Q":
             {
-                Console.WriteLine("czy to wszystkie oceny? y or n  ");
+                Console.WriteLine("are these all ratings? y or n  ");
                 var choise = Console.ReadLine();
                 if (choise == "y" || choise == "Y")
                 {
@@ -46,10 +48,10 @@ while(true)
                 }
                 else if (choise == "n" || choise == "N")
                 {
-                    Console.WriteLine("wracamy do  wyboru  ");
+                    Console.WriteLine("back to the choice\r\n  ");
                 }
                 else
-                    Console.WriteLine("podaj prawidołwą opcje wyboru  ");
+                    Console.WriteLine("provide the correct option  ");
             }
             break;
         default:
@@ -63,11 +65,13 @@ while(true)
 
     if (i == 1)
         break;
+    Console.WriteLine("enter the next employee evaluation\n");
 }
 
  
     var stat1= User1.GetStat();
-Console.WriteLine($"Statystyki: \n " + $" Max point  {stat1.Max}\n" + $" Min point  {stat1.Min}\n" + $" Average of points  {stat1.Average}\n");
+Console.WriteLine("--------------------------------------------------------\n");
+Console.WriteLine($"Statistics: \n " + $"Max point  {stat1.Max}\n" + $" Min point  {stat1.Min}\n" + $" Average of points  {stat1.Average}\n");
 Console.WriteLine("Letters of average points result: " + stat1.AverageLetter);
 Console.WriteLine("--------------------------------------------------------");
 
