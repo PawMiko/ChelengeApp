@@ -1,4 +1,6 @@
 ﻿
+using System.Drawing;
+
 namespace ChalangeApp
 {
     public class UserEmployee
@@ -10,7 +12,7 @@ namespace ChalangeApp
 
         public UserEmployee(string name)
         {
-            this.LoginName = name; 
+            this.LoginName = name;
         }
 
         public UserEmployee(string name, string lastName, int age)
@@ -20,7 +22,7 @@ namespace ChalangeApp
             this.age = age;
         }
 
-        
+
         public string LoginName { get; private set; }
         public string Lastname { get; private set; }
         public int age { get; private set; }
@@ -40,9 +42,9 @@ namespace ChalangeApp
             get
             {
                 float resultAddMinusPoint = 0;
-                for (int i=0; i<this.Points.Count;i++)
+                for (int i = 0; i < this.Points.Count; i++)
                 {
-                    if (this.Points[i]<0)
+                    if (this.Points[i] < 0)
                         resultAddMinusPoint += this.Points[i];
                 }
                 //var resultAddPoint = this.Points.Sum();
@@ -68,19 +70,19 @@ namespace ChalangeApp
             else
             {
                 Console.WriteLine("ivalid points value");
-            }        
+            }
         }
         public void AddPoint(ulong longPoint)//metoda konwerująca ulong na float w ramach walidacji
         {
-            float floatPoint=(float)longPoint;
+            float floatPoint = (float)longPoint;
             AddPoint(floatPoint);
         }
 
-        public void AddPoint(double  doublePoint)//metoda konwerująca double na float w ramach walidacji
+        public void AddPoint(double doublePoint)//metoda konwerująca double na float w ramach walidacji
         {
-            var floatPointTemp2 = Math.Round(doublePoint,2);
-            float floatPoint =(float)floatPointTemp2;        
-            AddPoint(floatPoint);             
+            var floatPointTemp2 = Math.Round(doublePoint, 2);
+            float floatPoint = (float)floatPointTemp2;
+            AddPoint(floatPoint);
         }
 
         public void AddPoint(char charPoint)//metoda konwerująca char na string w ramach walidacji
@@ -91,7 +93,7 @@ namespace ChalangeApp
 
         public void AddPoint(string stringPoint)//metoda konwerująca string na float w ramach walidacji
         {
-            if(float.TryParse(stringPoint,out float floatResult))
+            if (float.TryParse(stringPoint, out float floatResult))
             {
                 this.AddPoint(floatResult);
             }
@@ -103,7 +105,7 @@ namespace ChalangeApp
 
         public void RemovePoint(float x) //metoda ktora konweruje liczby dodatnie na ujemne i dodaje ujemne  punkty z wykorzystaniem listy
         {
-            if(x>0 && x<=100)
+            if (x > 0 && x <= 100)
             {
                 x = x * (-1);
                 this.PointsRemove.Add(x);
@@ -112,10 +114,10 @@ namespace ChalangeApp
             {
                 this.PointsRemove.Add(x);
             }
-            this.Points.Add(x);         
+            this.Points.Add(x);
         }
 
-        public Statistics GetStat () //metoda modelu danych
+        public Statistics GetStat() //metoda modelu danych
         {
             var stat = new Statistics();
 
@@ -131,9 +133,69 @@ namespace ChalangeApp
             }
             stat.Average /= this.Points.Count;
 
-            return stat;     
+            return stat;
         }
 
+        public Statistics GetStatFor()
+        {
+            AddPoint(3);
+            var stat = new Statistics();
+            stat.Max = -100;
+            stat.Min = 100;
+            stat.Average = 0;
+            for (int i = 0; i < this.Points.Count; i++)
+            {
+                stat.Max = Math.Max(stat.Max, this.Points[i]);
+                stat.Min = Math.Min(stat.Min, this.Points[i]);
+                stat.Average += this.Points[i];
+            }
+            stat.Average /= this.Points.Count;
+
+            return stat;
+        }
+
+        public Statistics GetStatWhile()
+        {
+            AddPoint(14);
+            var stat = new Statistics();
+            var i = 0;
+            stat.Max = -100;
+            stat.Min = 100;
+            stat.Average = 0;
+            while (i < this.Points.Count)
+            {
+                stat.Max = Math.Max(stat.Max, this.Points[i]);
+                stat.Min = Math.Min(stat.Min, this.Points[i]);
+                stat.Average += this.Points[i];
+                i++;
+            }
+
+            stat.Average /= this.Points.Count;
+
+            return stat;
+        }
+
+        public Statistics GetStatDoWhile()
+        {
+            AddPoint(15);
+            RemovePoint(-5);
+            var stat = new Statistics();
+            var i = 0;
+            stat.Max = -100;
+            stat.Min = 100;
+            stat.Average = 0;
+            do
+            {
+                stat.Max = Math.Max(stat.Max, this.Points[i]);
+                stat.Min = Math.Min(stat.Min, this.Points[i]);
+                stat.Average += this.Points[i];
+                i++;
+            } while (i < this.Points.Count);
+            
+            stat.Average /= this.Points.Count;
+
+            return stat;
+        }
 
 
     }
