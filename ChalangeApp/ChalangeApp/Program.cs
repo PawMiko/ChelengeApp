@@ -31,11 +31,15 @@ var stat1 = User1.GetStat();
 Console.WriteLine($"Dla pętli Foreach:\n " + $" Max point  {stat1.Max}\n" + $" Min point  {stat1.Min}\n" + $" Average of points  {stat1.Average}\n");
 Console.WriteLine("--------------------------------------------------------");
 stat1 = User1.GetStatFor();
+User1.AddPoint(3);
 Console.WriteLine($"Dla pętli For:\n " + $" Max point  {stat1.Max}\n" + $" Min point  {stat1.Min}\n" + $" Average of points  {stat1.Average}\n");
 Console.WriteLine("--------------------------------------------------------");
+User1.AddPoint(14);
 stat1 = User1.GetStatWhile();
 Console.WriteLine($"Dla pętli while:\n " + $" Max point  {stat1.Max}\n" + $" Min point  {stat1.Min}\n" + $" Average of points  {stat1.Average}\n");
 Console.WriteLine("--------------------------------------------------------");
+User1.AddPoint(15);
+User1.RemovePoint(-5);
 stat1 = User1.GetStatDoWhile();
 Console.WriteLine($"Dla pętli do while:\n " + $" Max point  {stat1.Max}\n" + $" Min point  {stat1.Min}\n" + $" Average of points  {stat1.Average}\n");
 

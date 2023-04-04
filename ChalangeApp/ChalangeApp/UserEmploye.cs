@@ -138,7 +138,6 @@ namespace ChalangeApp
 
         public Statistics GetStatFor()
         {
-            AddPoint(3);
             var stat = new Statistics();
             stat.Max = -100;
             stat.Min = 100;
@@ -156,7 +155,6 @@ namespace ChalangeApp
 
         public Statistics GetStatWhile()
         {
-            AddPoint(14);
             var stat = new Statistics();
             var i = 0;
             stat.Max = -100;
@@ -177,8 +175,6 @@ namespace ChalangeApp
 
         public Statistics GetStatDoWhile()
         {
-            AddPoint(15);
-            RemovePoint(-5);
             var stat = new Statistics();
             var i = 0;
             stat.Max = -100;
