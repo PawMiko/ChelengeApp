@@ -1,10 +1,12 @@
 ﻿
+using System.Data;
 using System.Drawing;
 
 namespace ChalangeApp
 {
     public class UserEmployee
     {
+       // private const char sex = 'M';
 
         private List<float> Points = new List<float>();
         private List<float> PointsRemove = new List<float>();
@@ -20,6 +22,7 @@ namespace ChalangeApp
             this.LoginName = name;
             this.Lastname = lastName;
             this.age = age;
+            
         }
 
 
@@ -47,7 +50,6 @@ namespace ChalangeApp
                     if (this.Points[i] < 0)
                         resultAddMinusPoint += this.Points[i];
                 }
-                //var resultAddPoint = this.Points.Sum();
                 return resultAddMinusPoint;
 
             }
@@ -69,7 +71,8 @@ namespace ChalangeApp
             }
             else
             {
-                Console.WriteLine("ivalid points value");
+                throw new Exception("Invalid point value");
+               
             }
         }
         public void AddPoint(ulong longPoint)//metoda konwerująca ulong na float w ramach walidacji
@@ -128,7 +131,7 @@ namespace ChalangeApp
             }
             else
             {
-                Console.WriteLine("string is not float or wrong letter");
+                throw new Exception("string is not float or wrong letter"); 
             }
         }
 

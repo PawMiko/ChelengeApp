@@ -8,9 +8,24 @@ var User2 = new UserEmployee(" Olek", " Kwiat", 43);
 var User3 = new UserEmployee(" Tomek", " Wit", 53);
 Console.WriteLine("Program dodający oceny pracownikowi ");
 Console.WriteLine("========================================================");
-Console.WriteLine("Choise evaluation A,B,C,D or value betwen 0 and 100");
+Console.WriteLine("Choise evaluation A,B,C,D or value between 0 and 100");
 Console.WriteLine("Q = exit\n");
 
+//try
+//{
+//    UserEmployee User4 = null;
+//    var name = User4.Lastname;
+
+
+//}
+//catch(Exception Ex)
+//{
+//    Console.WriteLine(Ex.Message);
+//}
+//finally
+//{
+//    Console.WriteLine("Finally");
+//}
 
 int i = 0;
 Console.WriteLine("Enter employee evaluation");
@@ -22,7 +37,7 @@ for (;;)
     {
         case "A":
         case "a":
-            User1.AddPoint('a');
+            User1.AddPoint('a');                  
             break;
         case "B":
         case "b":
@@ -30,37 +45,48 @@ for (;;)
             break;
         case "C":
         case "c":
-            User1.AddPoint('c');
+            User1.AddPoint('C');
             break;
         case "D":
         case "d":
-            User1.AddPoint('d');
+            User1.AddPoint('D');
             break;
         case "q":
         case "Q":
             {
                 Console.WriteLine("are these all ratings? y or n  ");
-                var choise = Console.ReadLine();
-                if (choise == "y" || choise == "Y")
+                var choice = Console.ReadLine();
+                try
                 {
-                     i = 1;
-                    break;
+                    if (choice == "y" || choice == "Y")
+                    {
+                        i = 1;
+                        break;
+                    }
+                    else if (choice == "n" || choice == "N")
+                    {
+                        throw new Exception("back to the choice\r\n");
+                    }
+                    else
+                        throw new Exception("provide the correct option  ");
                 }
-                else if (choise == "n" || choise == "N")
+                catch (Exception ex) 
                 {
-                    Console.WriteLine("back to the choice\r\n  ");
+                    Console.WriteLine($"Expection catched !!! {ex.Message}");
                 }
-                else
-                    Console.WriteLine("provide the correct option  ");
-            }
-            break;
-        default:
+            }break;
+            default:
             {
-                User1.AddPoint(input);
+                try 
+                {
+                    User1.AddPoint(input);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Exception catched !!! {ex.Message}");
+                }
             }
             break;
-
-
     }
 
     if (i == 1)
