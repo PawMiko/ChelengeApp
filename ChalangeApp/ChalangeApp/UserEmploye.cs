@@ -21,8 +21,7 @@ namespace ChalangeApp
         {
             this.LoginName = name;
             this.Lastname = lastName;
-            this.age = age;
-            
+            this.age = age;  
         }
 
 
@@ -63,11 +62,11 @@ namespace ChalangeApp
             }
         }
 
-        public void AddPoint(float XPoint)//metoda ktora dodaje punkty z wykorzystaniem listy
+        public void AddPoint(float xPoint)//metoda ktora dodaje punkty z wykorzystaniem listy
         {
-            if (XPoint >= 0 && XPoint <= 100)
+            if (xPoint >= 0 && xPoint <= 100)
             {
-                this.Points.Add(XPoint);
+                this.Points.Add(xPoint);
             }
             else
             {
@@ -83,8 +82,8 @@ namespace ChalangeApp
 
         public void AddPoint(double doublePoint)//metoda konwerująca double na float w ramach walidacji
         {
-            var floatPointTemp2 = Math.Round(doublePoint, 2);
-            float floatPoint = (float)floatPointTemp2;
+            var floatPointTemp = Math.Round(doublePoint, 2);
+            float floatPoint = (float)floatPointTemp;
             AddPoint(floatPoint);
         }
 
@@ -135,51 +134,51 @@ namespace ChalangeApp
             }
         }
 
-        public void RemovePoint(float x) //metoda ktora konweruje liczby dodatnie na ujemne i dodaje ujemne  punkty z wykorzystaniem listy
+        public void RemovePoint(float minus) //metoda ktora konweruje liczby dodatnie na ujemne i dodaje ujemne  punkty z wykorzystaniem listy
         {
-            if (x > 0 && x <= 100)
+            if (minus > 0 && minus <= 100)
             {
-                x = x * (-1);
-                this.PointsRemove.Add(x);
+                minus = minus * (-1);
+                this.PointsRemove.Add(minus);
             }
             else
             {
-                this.PointsRemove.Add(x);
+                this.PointsRemove.Add(minus);
             }
-            this.Points.Add(x);
+            this.Points.Add(minus);
         }
 
         public Statistics GetStat() //metoda modelu danych
         {
             var stat = new Statistics();
 
-            stat.Max = float.MinValue;
-            stat.Min = float.MaxValue;
-            stat.Average = 0;
+            stat.max = float.MinValue;
+            stat.min = float.MaxValue;
+            stat.average = 0;
 
             foreach (var point in Points)
             {
-                stat.Max = Math.Max(stat.Max, point);
-                stat.Min = Math.Min(stat.Min, point);
-                stat.Average += point;
+                stat.max = Math.Max(stat.max, point);
+                stat.min = Math.Min(stat.min, point);
+                stat.average += point;
             }
-            stat.Average /= this.Points.Count;
-            switch(stat.Average)
+            stat.average /= this.Points.Count;
+            switch(stat.average)
             {
                 case var average when average >= 80:
-                    stat.AverageLetter = 'A';
+                    stat.averageLetter = 'A';
                     break;
                 case var average when average >= 60:
-                    stat.AverageLetter = 'B';
+                    stat.averageLetter = 'B';
                     break;
                 case var average when average >= 40:
-                    stat.AverageLetter = 'C';
+                    stat.averageLetter = 'C';
                     break;
                 case var average when average >= 20:
-                    stat.AverageLetter = 'D';
+                    stat.averageLetter = 'D';
                     break;
                 default:
-                    stat.AverageLetter = 'E';
+                    stat.averageLetter = 'E';
                     break;
             }
 
