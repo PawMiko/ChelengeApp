@@ -97,8 +97,8 @@ for (;;)
  
     var stat1= User1.GetStat();
 Console.WriteLine("--------------------------------------------------------\n");
-Console.WriteLine($"Statistics: \n " + $"Max point  {stat1.max}\n" + $" Min point  {stat1.min}\n" + $" Average of points  {stat1.average}\n");
-Console.WriteLine("Letters of average points result: " + stat1.averageLetter);
+Console.WriteLine($"Statistics: \n " + $"Max point  {stat1.Max}\n" + $" Min point  {stat1.Min}\n" + $" Average of points  {stat1.Average}\n");
+Console.WriteLine("Letters of average points result: " + stat1.AverageLetter);
 Console.WriteLine("--------------------------------------------------------");
 
 

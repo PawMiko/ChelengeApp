@@ -21,13 +21,13 @@ namespace ChalangeApp
         {
             this.LoginName = name;
             this.Lastname = lastName;
-            this.age = age;  
+            this.Age = age;  
         }
 
 
         public string LoginName { get; private set; }
         public string Lastname { get; private set; }
-        public int age { get; private set; }
+        public int Age { get; private set; }
 
         public float Result //propercja  zwracające sume punktów zdobytych jak i "ujemnych"
         {
@@ -152,33 +152,33 @@ namespace ChalangeApp
         {
             var stat = new Statistics();
 
-            stat.max = float.MinValue;
-            stat.min = float.MaxValue;
-            stat.average = 0;
+            stat.Max = float.MinValue;
+            stat.Min = float.MaxValue;
+            stat.Average = 0;
 
             foreach (var point in Points)
             {
-                stat.max = Math.Max(stat.max, point);
-                stat.min = Math.Min(stat.min, point);
-                stat.average += point;
+                stat.Max = Math.Max(stat.Max, point);
+                stat.Min = Math.Min(stat.Min, point);
+                stat.Average += point;
             }
-            stat.average /= this.Points.Count;
-            switch(stat.average)
+            stat.Average /= this.Points.Count;
+            switch(stat.Average)
             {
                 case var average when average >= 80:
-                    stat.averageLetter = 'A';
+                    stat.AverageLetter = 'A';
                     break;
                 case var average when average >= 60:
-                    stat.averageLetter = 'B';
+                    stat.AverageLetter = 'B';
                     break;
                 case var average when average >= 40:
-                    stat.averageLetter = 'C';
+                    stat.AverageLetter = 'C';
                     break;
                 case var average when average >= 20:
-                    stat.averageLetter = 'D';
+                    stat.AverageLetter = 'D';
                     break;
                 default:
-                    stat.averageLetter = 'E';
+                    stat.AverageLetter = 'E';
                     break;
             }
 
