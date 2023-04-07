@@ -4,30 +4,32 @@ using System.Drawing;
 
 namespace ChalangeApp
 {
-    public class UserEmployee
+    public class UserEmployee : Person
     {
-       // private const char sex = 'M';
-
         private List<float> Points = new List<float>();
         private List<float> PointsRemove = new List<float>();
 
+        public UserEmployee()
+           : this("no name","no surname",55)
+        {   
+        }
 
         public UserEmployee(string name)
-        {
-            this.LoginName = name;
+            : base(name)
+        { 
         }
 
         public UserEmployee(string name, string lastName, int age)
+            :base(name,lastName,age) 
+        { 
+        }
+        public UserEmployee(string name, string lastName, int age,char sex)
+           : base(name,lastName,age,sex)
         {
-            this.LoginName = name;
-            this.Lastname = lastName;
-            this.Age = age;  
         }
 
 
-        public string LoginName { get; private set; }
-        public string Lastname { get; private set; }
-        public int Age { get; private set; }
+
 
         public float Result //propercja  zwracające sume punktów zdobytych jak i "ujemnych"
         {

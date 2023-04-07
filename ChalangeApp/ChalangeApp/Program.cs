@@ -11,22 +11,6 @@ Console.WriteLine("========================================================");
 Console.WriteLine("Choise evaluation A,B,C,D or value between 0 and 100");
 Console.WriteLine("Q = exit\n");
 
-//try
-//{
-//    UserEmployee User4 = null;
-//    var name = User4.Lastname;
-
-
-//}
-//catch(Exception Ex)
-//{
-//    Console.WriteLine(Ex.Message);
-//}
-//finally
-//{
-//    Console.WriteLine("Finally");
-//}
-
 int i = 0;
 Console.WriteLine("Enter employee evaluation");
 for (;;)
