@@ -4,31 +4,28 @@ using System.Drawing;
 
 namespace ChalangeApp
 {
-    public class UserEmployee : Person
+    public class UserEmployee : IEmployee
     {
         private List<float> Points = new List<float>();
         private List<float> PointsRemove = new List<float>();
 
-        public UserEmployee()
-           : this("no name","no surname",55)
-        {   
-        }
+      
 
-        public UserEmployee(string name)
-            : base(name)
+        public UserEmployee(string name, string lastName)
         { 
+            this.Name = name;
+            this.Lastname = lastName;
         }
-
         public UserEmployee(string name, string lastName, int age)
-            :base(name,lastName,age) 
-        { 
-        }
-        public UserEmployee(string name, string lastName, int age,char sex)
-           : base(name,lastName,age,sex)
         {
+            this.Name = name;
+            this.Lastname = lastName;
+            this.Age=age;
         }
 
-
+        public string Name { get; private set; }
+        public string Lastname { get; private set; }
+        public int Age { get; private set; }    
 
 
         public float Result //propercja  zwracające sume punktów zdobytych jak i "ujemnych"
@@ -153,38 +150,40 @@ namespace ChalangeApp
         public Statistics GetStat() //metoda modelu danych
         {
             var stat = new Statistics();
+                  
+                stat.Max = float.MinValue;
+                stat.Min = float.MaxValue;
+                stat.Average = 0;
 
-            stat.Max = float.MinValue;
-            stat.Min = float.MaxValue;
-            stat.Average = 0;
-
-            foreach (var point in Points)
-            {
-                stat.Max = Math.Max(stat.Max, point);
-                stat.Min = Math.Min(stat.Min, point);
-                stat.Average += point;
-            }
-            stat.Average /= this.Points.Count;
-            switch(stat.Average)
-            {
-                case var average when average >= 80:
-                    stat.AverageLetter = 'A';
-                    break;
-                case var average when average >= 60:
-                    stat.AverageLetter = 'B';
-                    break;
-                case var average when average >= 40:
-                    stat.AverageLetter = 'C';
-                    break;
-                case var average when average >= 20:
-                    stat.AverageLetter = 'D';
-                    break;
-                default:
-                    stat.AverageLetter = 'E';
-                    break;
-            }
-
-          return stat;
+                foreach (var point in Points)
+                {
+                    stat.Max = Math.Max(stat.Max, point);
+                    stat.Min = Math.Min(stat.Min, point);
+                    stat.Average += point;
+                }
+                stat.Average /= this.Points.Count;
+                switch (stat.Average)
+                {
+                    case var average when average >= 80:
+                        stat.AverageLetter = 'A';
+                        break;
+                    case var average when average >= 60:
+                        stat.AverageLetter = 'B';
+                        break;
+                    case var average when average >= 40:
+                        stat.AverageLetter = 'C';
+                        break;
+                    case var average when average >= 20:
+                        stat.AverageLetter = 'D';
+                        break;
+                    default:
+                        stat.AverageLetter = 'E';
+                        break;
+                }
+         
+              
+            
+            return stat;
         }
 
             
