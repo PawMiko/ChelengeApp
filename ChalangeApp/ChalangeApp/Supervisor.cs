@@ -4,35 +4,7 @@ namespace ChalangeApp
 {
     public class Supervisor : IEmployee
     {
-        //public string Name => "Krzycho";
-        //public string Lastname => "Marek";
-
-        //public void AddPoint(string x)
-        //{
-
-        //}
-        //public void AddPoint(ulong x)
-        //{
-
-        //}
-        //public void AddPoint(char x)
-        //{
-
-        //}
-        //public void AddPoint(double x)
-        //{
-
-        //}
-        //public Statistics GetStat()
-        //{
-        //    var stat = new Statistics();
-        //    return stat;
-        //}
-        //public void RemovePoint(float x)
-        //{
-
-        //}
-        
+                
             private List<float> Points = new List<float>();
             private List<float> PointsRemove = new List<float>();
 

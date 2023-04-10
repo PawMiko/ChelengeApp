@@ -6,37 +6,50 @@ using System.Diagnostics.CodeAnalysis;
 var User1 = new UserEmployee(" Pawel", " Muc", 33);
 var User2 = new UserEmployee(" Olek", " Kwiat", 43);
 var User3 = new UserEmployee(" Tomek", " Wit", 53);
-var Dyro = new Supervisor("Roman","Pyć", 40); 
+var Dyro = new Supervisor("Roman","Pyć", 40);
+var User4 = new UserEployeeInFile("Roman", "Pyć", 40);
 Console.WriteLine("Program dodający oceny pracownikowi ");
 Console.WriteLine("========================================================");
 Console.WriteLine("Choise evaluation A,B,C,D or value between 0 and 100");
 Console.WriteLine("Q = exit\n");
-
-int i = 0;
-Console.WriteLine("Employer or supervisor?  Press E or S");
-var  inputChoice =Console.ReadLine();
-if (inputChoice == "E" || inputChoice == "e")
-{
-    Console.WriteLine("Enter employee evaluation");
-    User();
-    var stat1 = User1.GetStat();
+//User4.SayHello();
+User4.AddPoint(0.5f);
+User4.AddPoint('a');
+User4.AddPoint(50);
+User4.AddPoint("99");
+ var stat1= User4.GetStat();
     Console.WriteLine("--------------------------------------------------------\n");
     Console.WriteLine($"Statistics: employe \n " + $"Max point  {stat1.Max}\n" + $" Min point  {stat1.Min}\n" + $" Average of points  {stat1.Average}\n");
     Console.WriteLine("Letters of average points result: " + stat1.AverageLetter);
     Console.WriteLine("--------------------------------------------------------");
-}
-else
-    if (inputChoice == "S" || inputChoice == "s")
-{
-    Console.WriteLine("Enter supervisor evaluation");
-    Supervisor();
-    var stat1 = Dyro.GetStat();
-    Console.WriteLine("--------------------------------------------------------\n");
-    Console.WriteLine($"Statistics dyro: \n " + $"Max point  {stat1.Max}\n" + $" Min point  {stat1.Min}\n" + $" Average of points  {stat1.Average}\n");
-    Console.WriteLine("Letters of average points result: " + stat1.AverageLetter);
-    Console.WriteLine("--------------------------------------------------------");
 
-}
+
+
+int i = 0;
+//Console.WriteLine("Employer or supervisor?  Press E or S");
+//var  inputChoice =Console.ReadLine();
+//if (inputChoice == "E" || inputChoice == "e")
+//{
+//    Console.WriteLine("Enter employee evaluation");
+//    User();
+//    var stat1 = User1.GetStat();
+//    Console.WriteLine("--------------------------------------------------------\n");
+//    Console.WriteLine($"Statistics: employe \n " + $"Max point  {stat1.Max}\n" + $" Min point  {stat1.Min}\n" + $" Average of points  {stat1.Average}\n");
+//    Console.WriteLine("Letters of average points result: " + stat1.AverageLetter);
+//    Console.WriteLine("--------------------------------------------------------");
+//}
+//else
+//    if (inputChoice == "S" || inputChoice == "s")
+//{
+//    Console.WriteLine("Enter supervisor evaluation");
+//    Supervisor();
+//    var stat1 = Dyro.GetStat();
+//    Console.WriteLine("--------------------------------------------------------\n");
+//    Console.WriteLine($"Statistics dyro: \n " + $"Max point  {stat1.Max}\n" + $" Min point  {stat1.Min}\n" + $" Average of points  {stat1.Average}\n");
+//    Console.WriteLine("Letters of average points result: " + stat1.AverageLetter);
+//    Console.WriteLine("--------------------------------------------------------");
+
+//}
 
 
 
