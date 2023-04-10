@@ -122,7 +122,7 @@ void Supervisor()
                 Dyro.AddPoint(100);
                 break;
             case "5":
-                User1.AddPoint(80);
+                Dyro.AddPoint(80);
                 break;
             case "4":
                 Dyro.AddPoint(60);
@@ -155,7 +155,7 @@ void Supervisor()
                 Dyro.AddPoint(5);
                 break;
             case "5+" or "+5":
-                User1.AddPoint(85);
+                Dyro.AddPoint(85);
                 break;
             case "4+" or "+4":
                 Dyro.AddPoint(65);
