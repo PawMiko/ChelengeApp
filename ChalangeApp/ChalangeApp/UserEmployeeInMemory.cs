@@ -2,16 +2,23 @@
 
 namespace ChalangeApp
 {
-    public class UserEmployeeInMemory : UserEmployeeBase
+    public class UserEmployeeInMemory : UserEmployeeBase 
     {
 
+        
+       
         List<float> Points = new List<float>();
-        List<float>PointsRemove = new List<float>();    
+        List<float>PointsRemove = new List<float>();
 
-        public UserEmployeeInMemory(string name, string lastname,int age)
-            : base(name, lastname,age)
+        public override event PointAddedDelegate PointAdded;
+
+        public UserEmployeeInMemory(string name, string lastname, int age) :
+            base(name, lastname, age)
         {
         }
+        
+       
+
         // wywołanie i dopisanielub nadpisanie metody wirualnej zaimplementowanej w  klasie bazowej UserEmployeeBase
         //public override void SayHello()
         //{
@@ -24,6 +31,12 @@ namespace ChalangeApp
             if (xPoint >= 0 && xPoint <= 100)
             {
                 this.Points.Add(xPoint);
+                if(PointAdded!=null)
+                {
+                    PointAdded(this, new EventArgs());
+
+                }
+               
             }
             else
             {
@@ -57,6 +70,7 @@ namespace ChalangeApp
                 case 'A':
                 case 'a':
                     this.Points.Add(100);
+                    
                     break;
                 case 'B':
                 case 'b':

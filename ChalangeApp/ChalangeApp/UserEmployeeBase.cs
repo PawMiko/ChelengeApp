@@ -4,11 +4,16 @@ namespace ChalangeApp
 {
     public abstract class UserEmployeeBase : IEmployee
     {
+        protected int counter = 0;
+
+        public delegate void PointAddedDelegate(object sender, EventArgs args);
+        public abstract event PointAddedDelegate PointAdded;
+        
         public UserEmployeeBase(string name, string lastname,int age)
         {
             this.Name = name;
             this.Lastname = lastname;
-            this.Age = age;
+            this.Age = age;           
         }
 
         public string Name { get; private set; }

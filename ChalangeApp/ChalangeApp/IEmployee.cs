@@ -1,11 +1,14 @@
 ﻿
+using static ChalangeApp.UserEmployeeBase;
+
 namespace ChalangeApp
 {
     public interface IEmployee
     {
         string Name { get; }
         string Lastname { get; }
-        int Age { get; } 
+        int Age { get; }
+        event PointAddedDelegate PointAdded;
 
         Statistics GetStat();
         void AddPoint(string x);

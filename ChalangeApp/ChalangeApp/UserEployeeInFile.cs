@@ -10,12 +10,13 @@ namespace ChalangeApp
     public class UserEployeeInFile : UserEmployeeBase
     {
         private const string fileName = "Points.txt";
+        public override event PointAddedDelegate PointAdded;
 
         public UserEployeeInFile(string name, string lastname,int age)
             : base(name,lastname,age)
         {
         }
-       
+              
 
         public override void AddPoint(float xPoint)
         {
@@ -24,6 +25,11 @@ namespace ChalangeApp
                 using (var writer = File.AppendText(fileName))
                 {
                     writer.WriteLine(xPoint);
+                }
+                if (PointAdded != null)
+                {
+                    PointAdded(this, new EventArgs());
+
                 }
             }
             else
