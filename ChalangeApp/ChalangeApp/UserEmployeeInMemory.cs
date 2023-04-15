@@ -34,14 +34,12 @@ namespace ChalangeApp
                 if(PointAdded!=null)
                 {
                     PointAdded(this, new EventArgs());
-
                 }
                
             }
             else
             {
                 throw new Exception("Invalid point value");
-
             }
         }
 
@@ -70,23 +68,47 @@ namespace ChalangeApp
                 case 'A':
                 case 'a':
                     this.Points.Add(100);
-                    
+                    if (PointAdded != null)
+                    {
+                        PointAdded(this, new EventArgs());
+                    }
+
                     break;
                 case 'B':
                 case 'b':
                     this.Points.Add(80);
+                    if (PointAdded != null)
+                    {
+                        PointAdded(this, new EventArgs());
+                    }
+
                     break;
                 case 'C':
                 case 'c':
                     this.Points.Add(60);
+                    if (PointAdded != null)
+                    {
+                        PointAdded(this, new EventArgs());
+                    }
+
                     break;
                 case 'D':
                 case 'd':
                     this.Points.Add(40);
+                    if (PointAdded != null)
+                    {
+                        PointAdded(this, new EventArgs());
+                    }
+
                     break;
                 case 'E':
                 case 'e':
                     this.Points.Add(20);
+                    if (PointAdded != null)
+                    {
+                        PointAdded(this, new EventArgs());
+                    }
+
                     break;
                 default:
                     {
@@ -94,7 +116,6 @@ namespace ChalangeApp
                         AddPoint(stringResult);
                         break;
                     }
-
             }
         }
 
@@ -109,35 +130,10 @@ namespace ChalangeApp
         {
             var stat = new Statistics();
 
-            stat.Max = float.MinValue;
-            stat.Min = float.MaxValue;
-            stat.Average = 0;
-
-            foreach (var point in Points)
+          foreach(var point in this.Points)
             {
-                stat.Max = Math.Max(stat.Max, point);
-                stat.Min = Math.Min(stat.Min, point);
-                stat.Average += point;
-            }
-            stat.Average /= this.Points.Count;
-            switch (stat.Average)
-            {
-                case var average when average >= 80:
-                    stat.AverageLetter = 'A';
-                    break;
-                case var average when average >= 60:
-                    stat.AverageLetter = 'B';
-                    break;
-                case var average when average >= 40:
-                    stat.AverageLetter = 'C';
-                    break;
-                case var average when average >= 20:
-                    stat.AverageLetter = 'D';
-                    break;
-                default:
-                    stat.AverageLetter = 'E';
-                    break;
-            }
+                stat.AddPoints(point);
+            } 
             return stat;
         }
 

@@ -12,11 +12,11 @@ namespace ChalangeApp
         private const string fileName = "Points.txt";
         public override event PointAddedDelegate PointAdded;
 
-        public UserEployeeInFile(string name, string lastname,int age)
-            : base(name,lastname,age)
+        public UserEployeeInFile(string name, string lastname, int age)
+            : base(name, lastname, age)
         {
         }
-              
+
 
         public override void AddPoint(float xPoint)
         {
@@ -29,15 +29,13 @@ namespace ChalangeApp
                 if (PointAdded != null)
                 {
                     PointAdded(this, new EventArgs());
-
                 }
             }
             else
             {
                 throw new Exception("Invalid point value");
-
             }
-          
+
         }
 
         public override void AddPoint(string stringPoint)
@@ -89,7 +87,6 @@ namespace ChalangeApp
                         AddPoint(stringResult);
                         break;
                     }
-
             }
         }
 
@@ -102,12 +99,7 @@ namespace ChalangeApp
 
         public override Statistics GetStat()
         {
-            var result=new Statistics();
-            result.Max = float.MinValue;
-            result.Min = float.MaxValue;
-            result.Average = 0;
-            int inc = 0;
-
+            var result = new Statistics();
             if (File.Exists(fileName))
             {
                 using (var reader = File.OpenText(fileName))
@@ -116,31 +108,9 @@ namespace ChalangeApp
                     while (line != null)
                     {
                         var number = float.Parse(line);
-                        result.Max = Math.Max(result.Max, number);
-                        result.Min = Math.Min(result.Min, number);
-                        result.Average += number;
-                        inc++;
+                        result.AddPoints(number);
                         line = reader.ReadLine();
                     }
-                    result.Average /= inc;
-                }
-                switch (result.Average)
-                {
-                    case var average when average >= 80:
-                        result.AverageLetter = 'A';
-                        break;
-                    case var average when average >= 60:
-                        result.AverageLetter = 'B';
-                        break;
-                    case var average when average >= 40:
-                        result.AverageLetter = 'C';
-                        break;
-                    case var average when average >= 20:
-                        result.AverageLetter = 'D';
-                        break;
-                    default:
-                        result.AverageLetter = 'E';
-                        break;
                 }
             }
             return result;
